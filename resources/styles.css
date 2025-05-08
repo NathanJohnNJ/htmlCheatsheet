@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV,SHRP@100..900,1,100&family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&family=League+Spartan:wght@100..900&family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap');
+
+@property --bg-angle {
+  inherits: false;
+  initial-value: 15deg;
+  syntax: "<angle>";
+}
+@property --bg-angle2 {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+*{
+  position: relative
+}
+aside{
+  background: padding-box linear-gradient(75deg, #fff 45%, #888 110%), border-box  conic-gradient(from var(--bg-angle2) at 50% 50%, #4eeaff, #4bb9ff, #5463ff, #b35dff, #ff5bdb, #ff547d, #ff7c43, #ffb642, #fff847, #76ff4f, #49ffd2, #44efff);
+  animation: rainbowAnimation 30s infinite linear forwards;
+  -moz-animation: rainbowAnimation 30s infinite linear forwards;
+  -webkit-animation: rainbowAnimation 30s infinite linear forwards;
+  width: fit-content;
+  border: 10px solid transparent;
+  border-radius: 5em;
+  position: absolute;
+  top: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  font-family: 'League Spartan';
+  line-height: 22px;
+}
+aside h3{
+  font-size: 1.6em;
+  background: repeating-linear-gradient(var(--bg-angle), #0e8adf, #0000ff, #44efff);
+  animation: rainbowAnimation 30s infinite linear forwards;
+  -moz-animation: rainbowAnimation 30s infinite linear forwards;
+  -webkit-animation: rainbowAnimation 30s infinite linear forwards;
+  background-clip: text;
+  -webkit-text-stroke: transparent 5px;
+  color: white
+}
+.asideLink{
+  font-size: 1.6em;
+  background: repeating-linear-gradient(var(--bg-angle2), #fff, #bbb, #fff);
+  animation: rainbowAnimation 30s infinite linear forwards;
+  -moz-animation: rainbowAnimation 30s infinite linear forwards;
+  -webkit-animation: rainbowAnimation 30s infinite linear forwards;
+  background-clip: text;
+  text-decoration: none;
+  color: grey;
+  transition: all;
+  transition-duration: 0.75s;
+}
+.asideLink:hover{
+  color:lightgray;
+  font-size: 1.8em;
+}
+.asideLink:active{
+  color:dimgray;
+  font-size: 1em;
+}
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 1,
+    "SHRP" 100;
+  font-weight: 800;
+  block-size: min-content;
+  color: gray
+}
+
+h1{
+  font-weight: 900;
+  font-size: 3.5vmax;
+  background: repeating-linear-gradient(var(--bg-angle), #ff009d 10%,  #00fbff 30%, #1aff00 45%, #ffe100 60%,  #ff009d 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 8px transparent;
+  animation: rainbowAnimation 30s infinite linear forwards;
+  -moz-animation: rainbowAnimation 30s infinite linear forwards;
+  -webkit-animation: rainbowAnimation 30s infinite linear forwards;
+  -webkit-text-fill-color: grey;
+}
+h2{
+  margin: -0.75em 0;
+}
+.link{
+  text-decoration: none;
+  color: grey;
+  font-size: 2em;
+  transition: all;
+  transition-duration: 0.75s;
+}
+.link:hover{
+  color:lightgray;
+  transform: scale(1.2);
+}
+.link:active{
+  color:dimgray;
+  transform: scale(0.6);
+}
+h3{
+  margin: 0.5em;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15vh;
+}
+#table{
+  --gap: 2em;
+  --line-offset: calc(var(--gap) / 2);
+  --line-color: #888;
+  --line-thickness: 2px;
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 2.5fr);
+  justify-items: stretch;
+  align-items: stretch;
+  grid-auto-flow: row;
+  /* grid-auto-rows: min-content; */
+  background-color: #fff;
+  overflow: scroll;
+  inline-size: 95vw;
+  block-size:  70vh;
+  gap: 1em;
+  border: var(--line-thickness) solid var(--line-color);
+  margin-top: 5vh;
+}
+ #table > h4::after, #table > h5::after, #table > .tableCell::before, #table > h5::before{
+  content: "";
+  background-color:  var(--line-color);
+  position: absolute;
+}
+
+ #table > h4::after, #table > h5::after{
+  inline-size: 100vw;
+  block-size: var(--line-thickness);
+  top: calc(var(--line-offset) * -1);
+  left: 0;
+}
+
+#table > .tableCell::before, #table > h5::before{
+  inline-size: var(--line-thickness);
+  block-size: 100vh;
+  top: 0;
+  left: calc(var(--line-offset) * -1);
+}
+.tableCell{
+  grid-template-rows: repeat(12, 1fr);
+  grid-auto-flow: column;
+  inline-size: fit-content;
+}
+ul, li{
+  inline-size: max-content;
+  margin-right: var(--gap)
+}
+h4{
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 1,
+    "SHRP" 100;
+  font-size: 1.5em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  inset-block-start: 0;
+  background-color: #fff;
+  inline-size: 105%;
+  block-size: 100%;
+  z-index: 999;
+  margin-left: -5%;
+  border-right: 2px solid #888;
+  border-bottom: 2px solid #888;
+}
+#tag{
+  left: 0;
+  top: 0;
+  z-index: 9999;
+}
+#attributes{
+  inline-size: 105%;
+}
+#deprecated{
+  inline-size: 490%;
+}
+h5{
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 1,
+    "SHRP" 100;
+  padding: 4px 60px;
+  font-size: 1.5em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  left: 0;
+  background-color: #fff;
+  block-size: 100%;
+  width: max-content;
+  z-index:99;
+}
+li{
+  font-family: "Mona Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  padding: 0 0.25em;
+  list-style-position: outside;
+  margin-left: -10px;
+}
+
+footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+img{
+  inline-size: 15vw;
+}
+.buttons{
+  display: flex;
+}
+/* btn includes label */
+.btn{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+}
+.label{
+  font-family: "Mona Sans", sans-serif;
+  margin: 0 2em;
+  font-size: 1.2em;
+}
+.labelOn{
+  font-weight: 750;
+}
+.labelOff{
+  font-weight: 350;
+}
+/* btnContainer doesn't include label */
+.btnContainer{
+  height: 2em;
+  width: 4em;
+  padding: 0.2em;
+  border-radius: 25em;
+  position: relative;
+  transition: all;
+  transition-duration: 0.5s;
+}
+button{
+  width: 50%;
+  height: 85%;
+  border-radius: 25em;
+  position: absolute;
+  border: none;
+  transition: all;
+  transition-duration: 0.5s;
+}
+button:hover{
+  cursor: pointer;
+  background-color: #aaa
+}
+.on{
+  right:5px;
+  background-color: #eee
+}
+.off{
+  left:5px;
+  background-color: #666;
+}
+.containerOff{
+  background-color: #00f;
+  border: 2px solid blue;
+}
+.containerOn{
+  background-color: #0095ff;
+  border: 2px solid #0095ff;
+  ;
+}
+.depColumn, .expColumn{
+  visibility: hidden;
+}
+
+@keyframes rainbowAnimation {
+  0% {
+    --bg-angle: 15deg;
+    --bg-angle2: 0deg;
+  }
+  50% {
+    --bg-angle: 135deg;
+    --g-angle2: 180deg;
+  }
+  100% {
+    --bg-angle: 15deg;
+    --bg-angle2: 360deg
+  }
+}
+@-moz-keyframes rainbowAnimation {
+  0% {
+    --bg-angle: 15deg;
+    --bg-angle2: 0deg;
+  }
+  50% {
+    --bg-angle: 135deg;
+    --g-angle2: 180deg;
+  }
+  100% {
+    --bg-angle: 15deg;
+    --bg-angle2: 360deg
+  }
+}
+@-webkit-keyframes rainbowAnimation {
+  0% {
+    --bg-angle: 15deg;
+    --bg-angle2: 0deg;
+  }
+  50% {
+    --bg-angle: 135deg;
+    --g-angle2: 180deg;
+  }
+  100% {
+    --bg-angle: 15deg;
+    --bg-angle2: 360deg
+  }
+}
